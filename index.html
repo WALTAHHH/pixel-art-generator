@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Art Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="tools">
+            <input type="color" id="colorPicker" value="#000000">
+            <button id="eraser" class="tool-button">Eraser</button>
+            <button id="shuffle" class="tool-button">Shuffle</button>
+            <div class="brush-sizes">
+                <button class="brush-size active" data-size="1">Small</button>
+                <button class="brush-size" data-size="2">Medium</button>
+                <button class="brush-size" data-size="3">Large</button>
+            </div>
+        </div>
+        <div class="color-history">
+            <h3>Color History</h3>
+            <div id="colorHistory" class="color-swatches"></div>
+        </div>
+        <div id="grid"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 

@@ -1,0 +1,114 @@
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.tools {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#colorPicker {
+    margin-right: 20px;
+}
+
+.brush-sizes {
+    display: inline-block;
+}
+
+.brush-size {
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.brush-size.active {
+    background-color: #333;
+    color: white;
+}
+
+#grid {
+    display: grid;
+    grid-template-columns: repeat(32, 20px);
+    grid-template-rows: repeat(32, 20px);
+    gap: 1px;
+    background-color: #ccc;
+    width: fit-content;
+    margin: 0 auto;
+    border: 3px solid #333;
+}
+
+.pixel {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    position: relative;
+}
+
+.pixel.shadow {
+    position: relative;
+}
+
+.pixel.shadow::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 110, 255, 0.3);
+    pointer-events: none;
+}
+
+.tool-button {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.tool-button.active {
+    background-color: #333;
+    color: white;
+}
+
+.color-history {
+    width: 200px;
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    background: white;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.color-history h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.color-swatches {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.color-swatch {
+    width: 25px;
+    height: 25px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.color-swatch:hover {
+    transform: scale(1.1);
+} 
