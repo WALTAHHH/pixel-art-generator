@@ -64,16 +64,19 @@ document.addEventListener('DOMContentLoaded', () => {
         const centerIndex = gridArray.indexOf(centerPixel);
         const gridWidth = 32;
 
-        // Calculate affected pixels based on brush size
+        // Calculate affected pixels based on brush size in a diamond pattern
         const affected = [];
         for (let y = -currentBrushSize + 1; y < currentBrushSize; y++) {
             for (let x = -currentBrushSize + 1; x < currentBrushSize; x++) {
-                const index = centerIndex + x + (y * gridWidth);
-                if (index >= 0 && index < gridArray.length) {
-                    const currentRow = Math.floor(centerIndex / gridWidth);
-                    const targetRow = Math.floor(index / gridWidth);
-                    if (Math.abs(currentRow - targetRow) < currentBrushSize) {
-                        affected.push(gridArray[index]);
+                // Diamond pattern check
+                if (Math.abs(x) + Math.abs(y) < currentBrushSize) {
+                    const index = centerIndex + x + (y * gridWidth);
+                    if (index >= 0 && index < gridArray.length) {
+                        const currentRow = Math.floor(centerIndex / gridWidth);
+                        const targetRow = Math.floor(index / gridWidth);
+                        if (Math.abs(currentRow - targetRow) < currentBrushSize) {
+                            affected.push(gridArray[index]);
+                        }
                     }
                 }
             }
@@ -97,15 +100,18 @@ document.addEventListener('DOMContentLoaded', () => {
         const centerIndex = gridArray.indexOf(centerPixel);
         const gridWidth = 32;
 
-        // Calculate affected pixels based on brush size
+        // Calculate affected pixels based on brush size in a diamond pattern
         for (let y = -currentBrushSize + 1; y < currentBrushSize; y++) {
             for (let x = -currentBrushSize + 1; x < currentBrushSize; x++) {
-                const index = centerIndex + x + (y * gridWidth);
-                if (index >= 0 && index < gridArray.length) {
-                    const currentRow = Math.floor(centerIndex / gridWidth);
-                    const targetRow = Math.floor(index / gridWidth);
-                    if (Math.abs(currentRow - targetRow) < currentBrushSize) {
-                        gridArray[index].classList.add('shadow');
+                // Diamond pattern check
+                if (Math.abs(x) + Math.abs(y) < currentBrushSize) {
+                    const index = centerIndex + x + (y * gridWidth);
+                    if (index >= 0 && index < gridArray.length) {
+                        const currentRow = Math.floor(centerIndex / gridWidth);
+                        const targetRow = Math.floor(index / gridWidth);
+                        if (Math.abs(currentRow - targetRow) < currentBrushSize) {
+                            gridArray[index].classList.add('shadow');
+                        }
                     }
                 }
             }
